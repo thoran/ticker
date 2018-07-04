@@ -16,13 +16,19 @@ class TickerService
 
   end # class << self
 
-  def initialize(pair: pair)
+  def initialize(pair = nil)
     @pair = pair
   end
 
-  def get(pair)
+  def get_raw(pair = nil)
+    pair = pair || @pair
     url = self.class.send(pair.downcase) + '/ticker'
-    HTTP.get(url)
+    HTTP.get(url).body
+  end
+
+  def get(pair = nil)
+    pair = pair || @pair
+    JSON.parse(get_raw(pair))
   end
 
 end
