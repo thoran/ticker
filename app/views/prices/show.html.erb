@@ -1,0 +1,18 @@
+<%= link_to 'Back to all prices', '/' %>
+
+<table>
+	<thead>
+		<tr>
+			<td>Time</td>
+			<td>Price</td>
+		</tr>
+	</thead>
+	<tbody>
+	<% @prices.each do |price| %>
+		<tr>
+			<td><%= price.current_time %></td>
+			<td><%= price.last %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
