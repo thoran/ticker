@@ -1,6 +1,7 @@
-class Ticker < ActiveRecord::Migration
+class CreatePrices < ActiveRecord::Migration
   def change
-    create_table :products do |t|
+    create_table :prices do |t|
+      t.string :pair
       t.decimal :volume_24h
       t.decimal :volume
       t.datetime :transition_time
