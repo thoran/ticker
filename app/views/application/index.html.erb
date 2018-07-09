@@ -1,0 +1,14 @@
+<h1>CoinJar Exchange Ticker</h1>
+
+<%= form_tag(controller: :prices, action: :create) do %>
+  <%= hidden_field_tag(:prices, @prices.to_json) %>
+  <%= submit_tag(' Capture ') %>
+<% end %>
+
+<ul>
+<% @prices.each do |price| %>
+  <li>
+    <%= link_to(price['pair'], "/prices/#{price['pair']}") %>: <%= price['last'] %>
+  </li>
+<% end %>
+</ul>

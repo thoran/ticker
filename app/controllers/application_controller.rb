@@ -6,10 +6,13 @@ class ApplicationController < ActionController::Base
   PAIRS = %w{BTCAUD ETHAUD}
 
   def index
-    @pair_prices = {}
-    PAIRS.each do |pair|
-
+    @prices = PAIRS.collect do |pair|
+      TickerService.new.get(pair).merge('pair' => pair)
     end
+  end
+
+  def create
+    @price = Price.new
   end
 
 end
