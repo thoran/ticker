@@ -42,7 +42,6 @@ class PricesController < ApplicationController
     prices.collect! do |price|
       price.slice(*create_permitted_fields)
     end
-    prices
   end
 
   def create_permitted_fields
