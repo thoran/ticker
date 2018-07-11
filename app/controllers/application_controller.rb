@@ -11,8 +11,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def create
-    @price = Price.new
-  end
-
 end
