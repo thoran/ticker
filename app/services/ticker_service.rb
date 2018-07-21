@@ -28,7 +28,7 @@ class TickerService
 
   def get(pair = nil)
     pair = pair || @pair
-    JSON.parse(get_raw(pair))
+    JSON.parse(get_raw(pair)).merge('pair' => pair)
   end
 
 end

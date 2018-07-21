@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def index
     @prices = PAIRS.collect do |pair|
-      TickerService.new.get(pair).merge('pair' => pair)
+      TickerService.new.get(pair)
     end
   end
 
